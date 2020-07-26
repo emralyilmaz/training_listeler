@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'card.dart';
+import 'list.dart';
 
 main() => runApp(MaterialApp(
       home: Home(),
@@ -31,11 +33,10 @@ class _FormWidgetState extends State<FormWidget> {
       ),
       body: GridView.count(
         crossAxisCount: 3,
-        children: List.generate(1000, (index) {
+        children: List.generate(secimler.length, (index) {
           return Center(
-            child: Text(
-              "veri $index",
-              style: Theme.of(context).textTheme.title,
+            child: SecimCard(
+              secim: secimler[index],
             ),
           );
         }),
