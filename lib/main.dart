@@ -23,36 +23,19 @@ class FormWidget extends StatefulWidget {
 }
 
 class _FormWidgetState extends State<FormWidget> {
+  final urunler = List<String>.generate(1000, (i) => "ürün ${i + 1}");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("ListTile"),
-      ),
-      body: ListView(
-        children: <Widget>[
-          ListTile(
-            title: Text("Map"),
-            subtitle: Text("Harita çiziniz"),
-            leading: Icon(Icons.map),
-          ),
-          ListTile(
-            title: Text("Album"),
-            subtitle: Text("Album oluşturun"),
-            leading: Icon(Icons.photo_album),
-          ),
-          ListTile(
-            title: Text("Telefon"),
-            subtitle: Text("Aramalar Yapın"),
-            leading: Icon(Icons.phone),
-          ),
-          ListTile(
-            title: Text("İletişim"),
-            subtitle: Text("İletişime geçin"),
-            leading: Icon(Icons.contacts),
-          ),
-        ],
-      ),
-    );
+        appBar: AppBar(
+          title: Text("ListTile"),
+        ),
+        body: ListView.builder(
+            itemCount: urunler.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text("${urunler[index]}"),
+              );
+            }));
   }
 }
